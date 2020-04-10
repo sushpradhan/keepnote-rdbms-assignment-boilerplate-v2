@@ -27,11 +27,11 @@ create trigger del_user before delete on User FOR EACH ROW Begin delete from Use
 delete from User where user_id=1;
 INSERT INTO Note VALUES (1, 'Note1', 'Note1-content', 'Inprogress', '2007-02-03');INSERT INTO Note VALUES (2, 'Note2', 'Note2-content', 'InActive', '2007-01-31');INSERT INTO Note VALUES (3, 'Note3', 'Note3-content', 'Active', '2007-02-02');INSERT INTO Note VALUES (4, 'Note4', 'Note4-content', 'Active', '2007-03-06');
 INSERT INTO Category VALUES ( 1, 'Category1-desc', '2007-02-06', '101');INSERT INTO Category VALUES ( 2, 'Category2-desc', '2007-06-21', '102');INSERT INTO Category VALUES ( 3, 'Category3-desc', '2007-05-05', '103');INSERT INTO Category VALUES ( 4, 'Category4-desc', '2007-06-08', '104');
-INSERT INTO NoteCategory VALUES ( 11, 101, 3);
-INSERT INTO NoteCategory VALUES ( 2, 201, 4);
-INSERT INTO NoteCategory VALUES ( 3, 301, 5);
-INSERT INTO UserNote VALUES ( 12, 111, 222);
-INSERT INTO UserNote VALUES ( 21, 222, 333);
+INSERT INTO NoteCategory VALUES ( 13, 101, 3);
+INSERT INTO NoteCategory VALUES ( 23, 201, 4);
+INSERT INTO NoteCategory VALUES ( 33, 301, 5);
+INSERT INTO UserNote VALUES ( 12, '111', 222);
+INSERT INTO UserNote VALUES ( 21, '222', 333);
 INSERT INTO Reminder VALUES (11, 'rem1', 'rem1-desc', 'erveryday', '2004-03-26', 'abc');
 INSERT INTO Reminder VALUES (22, 'rem2', 'rem2-desc', 'oneday', '2004-06-25', 'bcd');
 INSERT INTO User VALUES (1,'Pradeep','1991-12-12','svns',8904128500);

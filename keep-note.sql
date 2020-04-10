@@ -27,7 +27,7 @@ create trigger del_user before delete on User FOR EACH ROW Begin delete from Use
 delete from User where user_id=1;
 INSERT INTO Note VALUES (1, 'Note1', 'Note1-content', 'Inprogress', '2007-02-03');INSERT INTO Note VALUES (2, 'Note2', 'Note2-content', 'InActive', '2007-01-31');INSERT INTO Note VALUES (3, 'Note3', 'Note3-content', 'Active', '2007-02-02');INSERT INTO Note VALUES (4, 'Note4', 'Note4-content', 'Active', '2007-03-06');
 INSERT INTO Category VALUES ( 1, 'Category1-desc', '2007-02-06', '101');INSERT INTO Category VALUES ( 2, 'Category2-desc', '2007-06-21', '102');INSERT INTO Category VALUES ( 3, 'Category3-desc', '2007-05-05', '103');INSERT INTO Category VALUES ( 4, 'Category4-desc', '2007-06-08', '104');
-INSERT INTO NoteCategory VALUES ( 1, 101, 3);
+INSERT INTO NoteCategory VALUES ( 11, 101, 3);
 INSERT INTO NoteCategory VALUES ( 2, 201, 4);
 INSERT INTO NoteCategory VALUES ( 3, 301, 5);
 INSERT INTO UserNote VALUES ( 1, 111, 222);
@@ -37,9 +37,9 @@ INSERT INTO Reminder VALUES (2, 'rem2', 'rem2-desc', 'oneday', '2004-06-25', 'bc
 INSERT INTO User VALUES (1,'Pradeep','1991-12-12','svns',8904128500);
 INSERT INTO User VALUES (2,'Sai','1991-12-12','sure',8217862238);
 CREATE TABLE User(`user_id` VARCHAR(15) NOT NULL,  `user_name` VARCHAR(45) NOT NULL ,  `user_added_date` DATE NULL,  `user_password` VARCHAR(45) NULL,  `user_mobile` VARCHAR(15) NULL,  PRIMARY KEY (`user_id`));
-CREATE TABLE Note(`note_id` INT NOT NULL,  `note_title` VARCHAR(45) NOT NULL,  `note_content` VARCHAR(500) NULL,  `note_status` VARCHAR(10) NULL,  `note_creation_date` DATE NULL,  PRIMARY KEY (`note_id`));
-CREATE TABLE Category(`category_id` int NOT NULL,  `category_name` VARCHAR(45) NOT NULL,  `category_descr` VARCHAR(45) NULL,  `category_creation_date` timestamp NULL,  `category_creator` VARCHAR(15) NULL,  PRIMARY KEY (`category_id`));
-CREATE TABLE Reminder(`reminder_id` VARCHAR(15) NOT NULL,  `reminder_name` VARCHAR(45) NOT NULL,  `reminder_descr` VARCHAR(200) NULL,  `reminder_type` VARCHAR(20) NULL,  `reminder_creation_date` DATE NULL,  `reminder_creator` VARCHAR(15) NULL,  PRIMARY KEY (`reminder_id`));
+CREATE TABLE Note(`note_id` INT NOT NULL,  `note_title` VARCHAR(45) NOT NULL,  `note_content` VARCHAR(500) NULL,  `note_status` VARCHAR(10) NULL,  `note_creation_date` DATETIME NULL,  PRIMARY KEY (`note_id`));
+CREATE TABLE Category(`category_id` int NOT NULL,  `category_name` VARCHAR(45) NOT NULL,  `category_descr` VARCHAR(45) NULL,  `category_creation_date` DATETIME NULL,  `category_creator` VARCHAR(15) NULL,  PRIMARY KEY (`category_id`));
+CREATE TABLE Reminder(`reminder_id` VARCHAR(15) NOT NULL,  `reminder_name` VARCHAR(45) NOT NULL,  `reminder_descr` VARCHAR(200) NULL,  `reminder_type` VARCHAR(20) NULL,  `reminder_creation_date` DATETIME NULL,  `reminder_creator` VARCHAR(15) NULL,  PRIMARY KEY (`reminder_id`));
 CREATE TABLE NoteCategory(`notecategory_id` VARCHAR(15) NOT NULL,  `note_id` int NOT NULL,  `category_id` int NOT NULL,  PRIMARY KEY (`notecategory_id`));
 CREATE TABLE NoteReminder(`notereminder_id` VARCHAR(15) NOT NULL,  `note_id` int NOT NULL,  `reminder_id` VARCHAR(15) NOT NULL,  PRIMARY KEY (`notereminder_id`));
 CREATE TABLE UserNote(  `usernote_id` int NOT NULL,  `user_id` VARCHAR(15) NOT NULL,  `note_id` int NOT NULL,  PRIMARY KEY (`usernote_id`));

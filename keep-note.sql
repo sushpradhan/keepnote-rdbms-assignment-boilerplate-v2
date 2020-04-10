@@ -11,7 +11,7 @@ delete from Note where note_id=2;delete from NoteCategory where note_id=1;delete
 insert into Note values(5, 'Note5', 'Note5-content', 'active', '2010-06-10');insert into UserNote values(1, 23, 45);
 insert into Note values(5, 'Note5', 'note5-content', 'Progress', '2000-06-20');
 insert into NoteCategory values(1, 5, 6);
-insert into Reminder values('rem5', 'rem5-desc', '1hr', '2000-06-20', 1);
+insert into Reminder values(1, 'rem5', 'rem5-desc', '1hr', '2000-06-20', 'sush');
 insert into NoteReminder values(2, 3, 6);
 delete from UserNote where user_id=2 AND note_id=2;
 delete from NoteReminder where note_id=2;
@@ -38,7 +38,7 @@ INSERT INTO User VALUES (1,'Pradeep','1991-12-12','svns',8904128500);
 INSERT INTO User VALUES (2,'Sai','1991-12-12','sure',8217862238);
 CREATE TABLE User(`user_id` VARCHAR(15) NOT NULL,  `user_name` VARCHAR(45) NOT NULL ,  `user_added_date` DATE NULL,  `user_password` VARCHAR(45) NULL,  `user_mobile` VARCHAR(15) NULL,  PRIMARY KEY (`user_id`));
 CREATE TABLE Note(`note_id` INT NOT NULL,  `note_title` VARCHAR(45) NOT NULL,  `note_content` VARCHAR(500) NULL,  `note_status` VARCHAR(10) NULL,  `note_creation_date` DATE NULL,  PRIMARY KEY (`note_id`));
-CREATE TABLE Category(`category_id` int NOT NULL,  `category_name` VARCHAR(45) NOT NULL,  `category_descr` VARCHAR(45) NULL,  `category_creation_date` datetime NULL,  `category_creator` VARCHAR(15) NULL,  PRIMARY KEY (`category_id`));
+CREATE TABLE Category(`category_id` int NOT NULL,  `category_name` VARCHAR(45) NOT NULL,  `category_descr` VARCHAR(45) NULL,  `category_creation_date` timestamp NULL,  `category_creator` VARCHAR(15) NULL,  PRIMARY KEY (`category_id`));
 CREATE TABLE Reminder(`reminder_id` VARCHAR(15) NOT NULL,  `reminder_name` VARCHAR(45) NOT NULL,  `reminder_descr` VARCHAR(200) NULL,  `reminder_type` VARCHAR(20) NULL,  `reminder_creation_date` DATE NULL,  `reminder_creator` VARCHAR(15) NULL,  PRIMARY KEY (`reminder_id`));
 CREATE TABLE NoteCategory(`notecategory_id` VARCHAR(15) NOT NULL,  `note_id` int NOT NULL,  `category_id` int NOT NULL,  PRIMARY KEY (`notecategory_id`));
 CREATE TABLE NoteReminder(`notereminder_id` VARCHAR(15) NOT NULL,  `note_id` int NOT NULL,  `reminder_id` VARCHAR(15) NOT NULL,  PRIMARY KEY (`notereminder_id`));
